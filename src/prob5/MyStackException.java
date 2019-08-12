@@ -9,5 +9,9 @@ public class MyStackException extends Exception {
 	
 	public MyStackException( String message ) {
 		super( message );
+		if(message.equals("ArrayIndexOutOfBoundsException")) {
+			System.out.println("");
+		}
 	}
+
 }
