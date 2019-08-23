@@ -54,7 +54,7 @@ public class RequestHandler extends Thread {
 				responseStaticResource(outputStream, tokens[1], tokens[2]);
 			} else { // POST, PUT, DELETE 명령은 무시
 				consoleLog("bad request:" + request);
-				//response400Error(outputStream, tokens[2]);
+				response400Error(outputStream, tokens[2]);
 			}
 			
 			// 예제 응답입니다.
@@ -79,6 +79,29 @@ public class RequestHandler extends Thread {
 		}			
 	}
 	
+	private void response400Error(OutputStream outputStream, String protocol) throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println(protocol);
+
+		String Error400 = "/error/400.html";
+		File file = new File("./webapp" + Error400);
+		
+		// nio
+		byte[] body = Files.readAllBytes(file.toPath());
+		String contentType = Files.probeContentType(file.toPath());
+		
+		// 응답
+//		System.out.println((protocol + " 200 OK\r\n"));
+//		System.out.println(("Content-Type:" + contentType + "; charset=utf-8\r\n") );
+//		System.out.println( "\r\n" );
+//		System.out.println( new String(body) );
+		
+		outputStream.write( (protocol + " 200 OK\r\n").getBytes( "UTF-8" ) );
+		outputStream.write( ("Content-Type:" + contentType + "; charset=utf-8\r\n").getBytes( "UTF-8" ) );
+		outputStream.write( "\r\n".getBytes() );
+		outputStream.write( body );
+	}
+
 	private void responseStaticResource(
 		OutputStream outputStream,
 		String url,
@@ -91,10 +114,26 @@ public class RequestHandler extends Thread {
 		File file = new File("./webapp" + url);
 		if(file.exists() == false) {
 			consoleLog("File Not Found:" + url);
-			//response404Error(outputStream, tokens[2]);
+			response404Error(outputStream, protocol);
 			return;
 		}
 		
+		// nio
+		byte[] body = Files.readAllBytes(file.toPath());
+		String contentType = Files.probeContentType(file.toPath());
+		
+		// 응답
+		outputStream.write( (protocol + " 200 OK\r\n").getBytes( "UTF-8" ) );
+		outputStream.write( ("Content-Type:" + contentType + "; charset=utf-8\r\n").getBytes( "UTF-8" ) );
+		outputStream.write( "\r\n".getBytes() );
+		outputStream.write( body );
+	}
+	
+	private void response404Error(OutputStream outputStream, String protocol) throws IOException {
+		System.out.println(protocol);
+
+		String Error404 = "/error/404.html";
+		File file = new File("./webapp" + Error404);
 		// nio
 		byte[] body = Files.readAllBytes(file.toPath());
 		String contentType = Files.probeContentType(file.toPath());
