@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class ChatServer {
 	private static final int PORT = 8000;
+	private static final String hostAddress = "127.0.0.1";
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,7 +26,6 @@ public class ChatServer {
 			serverSocket = new ServerSocket();
 			
 			// 2. 바인딩
-			String hostAddress = InetAddress.getLocalHost().getHostAddress();
 			serverSocket.bind( new InetSocketAddress( hostAddress, PORT ) );			
 			log( "연결 기다림 " + hostAddress + ":" + PORT );
 
