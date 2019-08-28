@@ -60,8 +60,9 @@ public class ChatServerThread extends Thread {
 							if(tokens.length == 1) {
 								continue;
 							}
-							
-							doMessage(tokens[1]);
+														
+							String res = request.substring(7);
+							doMessage(res);
 							
 							if("quit".equals(tokens[1])) {
 								doQuit(pr);
