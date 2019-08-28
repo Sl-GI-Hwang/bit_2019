@@ -78,13 +78,13 @@ public class ChatServerThread extends Thread {
 				System.out.println("[Server] Suddenly Closed by Client");
 				doQuit(pr);
 			}catch(IOException e) {
-				e.printStackTrace();
+				System.out.println(e);
 			}finally {
 				try {
 					if(socket != null && !socket.isClosed())
 						socket.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println(e);
 				}
 			}
 	}
