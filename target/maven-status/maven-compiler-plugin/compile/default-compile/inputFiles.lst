@@ -1,3 +1,3 @@
-D:\itcen\eclipse-workspace\network2\src\main\java\kr\co\itcen\network\echo\EchoClient.java
-D:\itcen\eclipse-workspace\network2\src\main\java\kr\co\itcen\network\echo\EchoServer.java
-D:\itcen\eclipse-workspace\network2\src\main\java\kr\co\itcen\network\echo\EchoServerReceiveThread.java
+/usr/local/itcen/network2/src/main/java/kr/co/itcen/network/echo/EchoServer.java
+/usr/local/itcen/network2/src/main/java/kr/co/itcen/network/echo/EchoClient.java
+/usr/local/itcen/network2/src/main/java/kr/co/itcen/network/echo/EchoServerReceiveThread.java
