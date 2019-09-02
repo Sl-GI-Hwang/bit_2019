@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 /usr/local/itcen/network2/src/main/java/kr/co/itcen/network/echo/EchoServer.java
 /usr/local/itcen/network2/src/main/java/kr/co/itcen/network/echo/EchoClient.java
 /usr/local/itcen/network2/src/main/java/kr/co/itcen/network/echo/EchoServerReceiveThread.java
+=======
+C:\Users\bit\git\repository\network2\src\main\java\kr\co\itcen\network\echo\EchoServerReceiveThread.java
+C:\Users\bit\git\repository\network2\src\main\java\kr\co\itcen\network\echo\EchoClient.java
+C:\Users\bit\git\repository\network2\src\main\java\kr\co\itcen\network\echo2\SimpleHttpServer.java
+C:\Users\bit\git\repository\network2\src\main\java\kr\co\itcen\network\echo\EchoServer.java
+C:\Users\bit\git\repository\network2\src\main\java\kr\co\itcen\network\echo2\RequestHandler.java
+>>>>>>> 34be07e5b5141dc9e6ad0a8dbfa0e868091dd75b

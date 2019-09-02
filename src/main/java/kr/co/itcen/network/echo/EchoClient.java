@@ -12,8 +12,14 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class EchoClient {
+<<<<<<< HEAD
    private static String SERVER_IP = "192.168.1.5";
    private static int SERVER_PORT = 8000;
+=======
+   private static String SERVER_IP = "192.168.1.88";
+//	private static String SERVER_IP = "192.168.1.5";
+   private static int SERVER_PORT = 7711;
+>>>>>>> 34be07e5b5141dc9e6ad0a8dbfa0e868091dd75b
    
    public static void main(String[] args) {
       
