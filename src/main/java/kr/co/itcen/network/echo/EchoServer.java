@@ -12,11 +12,8 @@ import java.net.Socket;
 import java.net.SocketException;
 
 public class EchoServer {
-<<<<<<< HEAD
+
 	private static final int PORT = 7711;
-=======
-	private static final int PORT = 8005;
->>>>>>> 34be07e5b5141dc9e6ad0a8dbfa0e868091dd75b
 
 	public static void main(String[] args) {
 		ServerSocket serverSocket = null;
