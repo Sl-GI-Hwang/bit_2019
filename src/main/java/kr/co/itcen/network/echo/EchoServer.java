@@ -12,7 +12,7 @@ import java.net.Socket;
 import java.net.SocketException;
 
 public class EchoServer {
-	private static final int PORT = 8000;
+	private static final int PORT = 7711;
 
 	public static void main(String[] args) {
 		ServerSocket serverSocket = null;
@@ -22,6 +22,7 @@ public class EchoServer {
 			serverSocket = new ServerSocket();
 			InetSocketAddress inetSocketAddress = new InetSocketAddress(inetAddress, PORT);
 
+			System.out.println(inetAddress.getHostAddress());
 			serverSocket.bind(inetSocketAddress);
 
 			Socket socket = serverSocket.accept();
