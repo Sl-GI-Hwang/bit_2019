@@ -11,6 +11,7 @@ import java.nio.file.Files;
 
 public class RequestHandler extends Thread {
    private static String documents = "";
+   
    static {
 	   documents = RequestHandler.class.getClass().getResource("/webapp").getPath();
    }
