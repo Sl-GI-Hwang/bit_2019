@@ -72,8 +72,8 @@ public class EmaillistDao {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 		
-			String url = "jdbc:mariadb://192.168.1.62:3306/webdb?characterEncoding=utf8";
-			connection = DriverManager.getConnection(url, "webdb", "webdb");
+			String url = "jdbc:mariadb://192.168.1.88:3306/webdb?characterEncoding=utf8";
+			connection = DriverManager.getConnection(url, "webdb", "fpdlcld12!");
 		
 		} catch (ClassNotFoundException e) {
 			System.out.println("Fail to Loading Driver:" + e);
@@ -123,7 +123,7 @@ public class EmaillistDao {
 		try {
 			connection = getConnection();
 			
-			String sql = "select no, first_name, last_name, email from emaillist order by no desc";
+			String sql = "select id, first_name, last_name, email from emaillist order by id desc";
 			pstmt = connection.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
