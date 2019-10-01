@@ -14,7 +14,8 @@
 	<!-- validator, conversionService, messageConverter를 자동으로 등록 -->
 	<mvc:annotation-driven />
 
- 
+	<mvc:resources location="file:/uploads/" mapping="/images/**"/>
+	 
 	<context:annotation-config />
 	<context:component-scan base-package="kr.co.itcen.fileupload.controller" />
 	
