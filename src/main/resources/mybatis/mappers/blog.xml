@@ -13,7 +13,7 @@
 	
 	<select id="categoryList" parameterType="string" resultType="categoryvo">
 		<![CDATA[
-		select category_no as categoryNo, name
+		select category_no as categoryNo, name, contents
 		from category
 		where blog_id = #{id }; 
 		]]>
