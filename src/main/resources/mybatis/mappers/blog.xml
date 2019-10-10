@@ -5,7 +5,7 @@
 
 	<select id="blogInfo" parameterType="string" resultType="blogvo">
 		<![CDATA[
-		select blog_id as id, title, logo
+		select blog_id as id, title, logo, path
 		from blog
 		where blog_id = #{id };
 		]]>

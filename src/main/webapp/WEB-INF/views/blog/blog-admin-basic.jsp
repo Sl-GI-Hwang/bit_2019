@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
-<Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<Link rel="stylesheet" href="${pageContext.servletContext.contextPath}/assets/css/jblog.css">
 </head>
 <body>
 	<div id="container">
@@ -29,26 +29,26 @@
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
 					<li class="selected">기본설정</li>
-					<li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/category">카테고리</a></li>
-					<li><a href="${pageContext.request.contextPath}/${authUser.id}/admin/write">글작성</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/${authUser.id}/admin/category">카테고리</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/${authUser.id}/admin/write">글작성</a></li>
 				</ul>
-				<form action="${pageContext.request.contextPath}/${authUser.id}/admin/modifyDefault" method="post" enctype="multipart/form-data">
+				<form action = "${pageContext.servletContext.contextPath}/${authUser.id}/admin/editDefault" method="post" enctype="multipart/form-data">
 	 		      	<table class="admin-config">
 			      		<tr>
 			      			<td class="t">블로그 제목</td>
-			      			<td><input type="text" size="40" name="title"></td>
+			      			<td><input type="text" size="40" id="title" name="title" value ="${blogvo.title }"></td>
 			      		</tr>
 			      		<tr>
 			      			<td class="t">로고이미지</td>
-			      			<td><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>      			
+			      			<td><img id = imgSrc src="${pageContext.servletContext.contextPath}${blogvo.path }"></td>      			
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="logo-file" ></td>      			
+			      			<td><input type="file" id="logomenu" name="logomenu" ></td>      			
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td class="s"><input type="submit" value="기본설정 변경"></td>      			
+			      			<td class="s"><input type="submit" id="btn-submit" value="기본설정 변경"></td>      			
 			      		</tr>           		
 			      	</table>
 				</form>

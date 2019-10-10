@@ -16,7 +16,7 @@
 			<c:choose>
 				<c:when test="${authUser.id eq blogInfo.id}">
 					<li><a href="${pageContext.servletContext.contextPath }/user/logout">로그아웃</a></li>
-					<li><a href="${pageContext.servletContext.contextPath }/${authUser.id }/admin/basic">블로그 관리</a></li>
+					<li><a id="gotoBlog" href="${pageContext.servletContext.contextPath }/${authUser.id }/admin/basic">블로그 관리</a></li>
 				</c:when>
 				<c:otherwise>
 					<li><a href="${pageContext.servletContext.contextPath }/user/login">로그인</a></li>
@@ -58,7 +58,7 @@
 
 		<div id="extra">
 			<div class="blog-logo">
-				<img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg">
+				<img src="${pageContext.request.contextPath}${blogInfo.path }">
 			</div>
 		</div>
 

@@ -47,4 +47,22 @@
 		values (null, #{name }, #{contents }, now(),  #{blogId  })
 		]]>	
 	</insert>
+	
+	<update id="modifyDefault" parameterType="blogvo">
+		<![CDATA[
+		update blog  
+	       set title = #{title },
+	       	   logo = #{logo  },
+	       	   path = #{path	}
+	     where blog_id = #{id	} 	   
+		]]>	
+	</update>
+	
+	<select id="getDefault" parameterType="string" resultType="blogvo">
+		<![CDATA[
+		select blog_id as id, title, logo, path
+		  from blog
+		 where blog_id = #{id  }
+		]]>
+	</select>
 </mapper>
