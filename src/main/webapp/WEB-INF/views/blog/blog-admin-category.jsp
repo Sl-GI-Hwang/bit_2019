@@ -25,6 +25,7 @@ $(function(){
 			success: function( result ){
 			     if( result ){
 			        // 삭제 버튼을 누른 row 제거
+			        alert("카테고리 삭제가 완료되었습니다");
 			        $(thisObj).parent().parent().remove();
 			      }
 			    },
@@ -49,6 +50,7 @@ $(function(){
 		    dataType: "json",
 		    success: function(result){
 		    	if(result.success) {
+		    		alert("카테고리 추가가 완료되었습니다");
 		    		categoryList = result.categoryList;
 			    	getPostCount = result.getPostCount;
 			    	
