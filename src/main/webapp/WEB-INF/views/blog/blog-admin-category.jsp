@@ -78,6 +78,7 @@ $(function(){
 		  $newTbody = $("<tbody class='new-tbody'></tbody>")
 		  $(".admin-cat").append($newTbody)
 			
+		  var a = categoryList.length;
 		  for(let category in categoryList){
 			  for(let postnum in getPostCount) {
 				  if(categoryList[category].categoryNo == getPostCount[postnum].categoryNo) {
@@ -86,7 +87,7 @@ $(function(){
 			  }
 			  $newTbody.append(
 			   	"<tr>" +
-		        "<td>" + 7 + "</td>" +
+		        "<td>" + a + "</td>" +
 		        "<td>" + categoryList[category].name + "</td>" +
 		        "<td>" + postcount + "</td>"+
 		        "<td>" + categoryList[category].contents + "</td>" +
@@ -95,6 +96,7 @@ $(function(){
 			    "id="+categoryList[category].categoryNo+">" +	
 		        "</td>" +
 		        "</tr>");
+			  a--;
 		  }
 	}
 });
@@ -123,9 +125,9 @@ $(function(){
 			      		</tr>
 			      	</thead>
 			      	<tbody class = "origin-tbody">
-		      		<c:forEach var="category" items="${categoryList }">
+		      		<c:forEach var="category" items="${categoryList }" varStatus="status">
 		      		<tr>
-						<td>3</td>
+						<td>${fn:length(categoryList) - status.count + 1}</td>
 						<td>${category.name}</td>
 						
 						<c:forEach var="postnum" items="${getPostCount }">
