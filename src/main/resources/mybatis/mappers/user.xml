@@ -15,7 +15,7 @@
 		<![CDATA[
 		insert
 		  into blog
-		values (#{id }, #{title }, null)
+		values (#{id }, #{title }, null, null)
 		]]>
 	</insert>
 	

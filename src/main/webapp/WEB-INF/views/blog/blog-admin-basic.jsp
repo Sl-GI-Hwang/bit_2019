@@ -12,18 +12,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>Spring 이야기</h1>
-			<ul>
-				<c:choose>
-				<c:when test="${empty authUser }">
-					<li><a href="${pageContext.servletContext.contextPath }/user/login">로그인</a></li>
-				</c:when>
-				<c:otherwise>
-					<li><a href="${pageContext.servletContext.contextPath }/user/logout">로그아웃</a></li>
-					<li><a href="${pageContext.servletContext.contextPath }/${authUser.id }/admin/basic">블로그 관리</a></li>
-				</c:otherwise>
-				</c:choose>
-			</ul>
+			<c:import url="/WEB-INF/views/includes/admin-header.jsp" />
 		</div>
 		<div id="wrapper">
 			<div id="content" class="full-screen">
@@ -44,7 +33,7 @@
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" id="logomenu" name="logomenu" ></td>      			
+			      			<td><input type="file" id="logomenu" name="logomenu"></td>      			
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
@@ -55,9 +44,7 @@
 			</div>
 		</div>
 		<div id="footer">
-			<p>
-				<strong>Spring 이야기</strong> is powered by JBlog (c)2016
-			</p>
+			<c:import url="/WEB-INF/views/includes/admin-footer.jsp" />
 		</div>
 	</div>
 </body>

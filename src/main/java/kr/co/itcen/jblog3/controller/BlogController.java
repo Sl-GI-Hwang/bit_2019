@@ -1,6 +1,7 @@
 package kr.co.itcen.jblog3.controller;
 
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.itcen.jblog3.dto.JSONResult;
+import kr.co.itcen.jblog3.security.Auth;
 import kr.co.itcen.jblog3.service.BlogService;
 import kr.co.itcen.jblog3.vo.BlogVo;
 import kr.co.itcen.jblog3.vo.CategoryVo;
@@ -48,16 +50,16 @@ public class BlogController {
 		return "blog/blog-main";
 	}
 	
+	@Auth("ADMIN")
 	@RequestMapping(value={ "/admin", "/admin/basic" }, method=RequestMethod.GET)
 	public String adminBasic(@PathVariable String id,
 			Model model
 			){
-		System.out.println("여기입니다 호갱님");
-		
 		model.addAttribute("blogvo", blogService.getBlog(id));
 		return "blog/blog-admin-basic";
 	}
 		
+	@Auth("ADMIN")
 	@RequestMapping(value="/admin/category", method=RequestMethod.GET)
 	public String adminCategory(@PathVariable String id,
 			ModelMap model){
@@ -65,6 +67,7 @@ public class BlogController {
 		return "blog/blog-admin-category";
 	}
 	
+	@Auth("ADMIN")
 	@RequestMapping(value="/admin/write", method=RequestMethod.GET)
 	public String adminWrite(@PathVariable String id,
 			Model model){
@@ -73,6 +76,7 @@ public class BlogController {
 		return "blog/blog-admin-write";
 	}
 	
+	@Auth("ADMIN")
 	@RequestMapping(value="/admin/write", method=RequestMethod.POST)
 	public String adminWrite(@PathVariable String id,
 			@ModelAttribute PostVo postVo,
@@ -84,12 +88,14 @@ public class BlogController {
 		return "blog/blog-admin-write";
 	}
 	
+	@Auth("ADMIN")
 	@RequestMapping(value="/admin/editDefault", method=RequestMethod.POST) 
 	public String modifyDefault(
 			@PathVariable String id,
 			@ModelAttribute BlogVo blogvo,
 			@RequestParam(value="logomenu",required=false) MultipartFile multipartFile,
 			Model model) {
+		
 		blogvo.setId(id);
 		System.out.println(blogvo.toString());
 		
@@ -97,6 +103,7 @@ public class BlogController {
 		return "redirect:/"+id+"/admin";
 	}
 	
+	@Auth("ADMIN")
 	@ResponseBody
 	@RequestMapping(value="/admin/delete", method=RequestMethod.POST)
 	public JSONResult delete(@ModelAttribute CategoryVo categoryVo) {
@@ -104,12 +111,23 @@ public class BlogController {
 		return JSONResult.success(exist);
 	}
 	
+	@Auth("ADMIN")
 	@ResponseBody
 	@RequestMapping(value="/admin/insertCat", method=RequestMethod.POST)
 	public Map<String, Object> insertCat(@ModelAttribute CategoryVo categoryVo) {
 		Map<String, Object> result = blogService.insert(categoryVo);
 		result.put("success", true);
 		return result;
+	}
+	
+	@Auth("ADMIN")
+	@ResponseBody
+	@RequestMapping(value="/admin/getTitle", method=RequestMethod.POST)
+	public Map<String, Object> getTitle(@PathVariable String id){
+		Map<String, Object> map = new HashMap<String, Object>();
+		BlogVo result = blogService.getBlog(id);
+		map.put("title", result.getTitle());
+		return map;
 	}
 
 }

@@ -15,11 +15,13 @@
 			<h1>${blogInfo.title}</h1>
 			<c:choose>
 				<c:when test="${authUser.id eq blogInfo.id}">
-					<li><a href="${pageContext.servletContext.contextPath }/user/logout">로그아웃</a></li>
 					<li><a id="gotoBlog" href="${pageContext.servletContext.contextPath }/${authUser.id }/admin/basic">블로그 관리</a></li>
 				</c:when>
-				<c:otherwise>
+				<c:when test="${empty authUser.id}">
 					<li><a href="${pageContext.servletContext.contextPath }/user/login">로그인</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="${pageContext.servletContext.contextPath }/user/logout">로그아웃</a></li>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -47,7 +49,7 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="posts" items="${postList }">
-						<li><a href="${pageContext.servletContext.contextPath }/${authUser.id }/${posts.categoryNo }/${posts.postNo }">${posts.title}</a> <span>${posts.regDate}</span>	</li>
+						<li><a href="${pageContext.servletContext.contextPath }/${blogInfo.id }/${posts.categoryNo }/${posts.postNo }">${posts.title}</a> <span>${posts.regDate}</span>	</li>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
@@ -58,7 +60,7 @@
 
 		<div id="extra">
 			<div class="blog-logo">
-				<img src="${pageContext.request.contextPath}${blogInfo.path }">
+				<img src="${pageContext.servletContext.contextPath}${blogInfo.path }">
 			</div>
 		</div>
 
@@ -66,7 +68,7 @@
 			<h2>카테고리</h2>
 			<ul>
 				<c:forEach var="category" items="${categoryList }">
-					<li><a href="${pageContext.servletContext.contextPath }/${authUser.id }/${category.categoryNo }">${category.name}</a></li>
+					<li><a href="${pageContext.servletContext.contextPath }/${blogInfo.id }/${category.categoryNo }">${category.name}</a></li>
 				</c:forEach>
 			</ul>
 		</div>

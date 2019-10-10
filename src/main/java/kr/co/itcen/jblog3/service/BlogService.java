@@ -99,9 +99,15 @@ public class BlogService {
 		
 		try {
 			result = blogDao.getDefault(id);
+			if(result.getLogo() == null) {
+				result.setPath("/assets/images/logo.jpg");
+				return result;
+			}
+			
 			os = new FileOutputStream(SAVE_PATH + "/" +result.getPath());
 			os.write(result.getLogo());
 			os.close();
+			
 			result.setPath(URL_PREFIX + "/" + result.getPath());
 			return result;
 		} catch (IOException e) {
