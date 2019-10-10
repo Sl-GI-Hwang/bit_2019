@@ -34,7 +34,7 @@ public class BlogService {
 	}
 	
 	private static final String SAVE_PATH = "/uploads";
-	private static final String URL_PREFIX = "/assets/images";
+	private static final String URL_PREFIX = "/assets/img";
 
 	public List<CategoryVo> getCategory(String id) {
 		return blogDao.getCategory(id);
