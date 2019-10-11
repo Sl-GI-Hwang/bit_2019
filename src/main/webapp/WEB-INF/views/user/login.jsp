@@ -9,6 +9,14 @@
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.9.0.js"></script>
+<script>
+$(function(){
+	var fail = "${param.res}";
+	if(fail == 'fail') {
+		alert("로그인에 실패했습니다.");
+	}	
+});
+</script>
 </head>
 <body>
 	<div class="center-content">
