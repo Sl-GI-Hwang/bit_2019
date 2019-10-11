@@ -19,4 +19,8 @@ public class UserService {
 		UserVo authUser= userDao.get(vo);
 		return authUser;
 	}
+
+	public UserVo checkId(UserVo vo) {
+		return userDao.get(vo);
+	}
 }

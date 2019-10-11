@@ -75,7 +75,7 @@ $(function(){
 	}
 
 	function createNewTable(categoryList, getPostCount){
-		  $newTbody = $("<tbody class='new-tbody'></tbody>")
+		  var $newTbody = $("<tbody class='new-tbody'></tbody>")
 		  $(".admin-cat").append($newTbody)
 			
 		  var a = categoryList.length;

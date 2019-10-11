@@ -32,7 +32,11 @@
 		select id, name
 		  from user
 		 where id = #{id }
+		]]>
+		<if test ="password != null">
+		<![CDATA[ 
 		   and password = #{password }	
 		]]>
+		</if>
 	</select>
 </mapper>

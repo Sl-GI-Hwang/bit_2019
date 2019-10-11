@@ -64,7 +64,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		if("ADMIN".equals(role)) {
 			UserVo isAdmin = (UserVo) session.getAttribute("authUser");
 			if(isAdmin.getId().equals(pathVariables.get("id")) == false) {
-				response.sendRedirect(request.getContextPath()+ "/user/login");
+				response.sendRedirect(request.getContextPath());
 				return false;
 			}
 			return true;
