@@ -17,6 +17,10 @@ $(function(){
 	});	
 	
 	$("#btn-checkemail").click(function(){
+		if($("#blog-id").val == ""){
+			return;
+		}
+		
 		$.ajax({
 		    url: "${pageContext.servletContext.contextPath}/user/idCheck",
 		    type: "POST",
