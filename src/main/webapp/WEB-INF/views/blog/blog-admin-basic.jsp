@@ -25,7 +25,7 @@
 	 		      	<table class="admin-config">
 			      		<tr>
 			      			<td class="t">블로그 제목</td>
-			      			<td><input type="text" size="40" id="title" name="title" value ="${blogvo.title }"></td>
+			      			<td><input type="text" size="40" id="title" name="title" value ="${blogvo.title }" required></td>
 			      		</tr>
 			      		<tr>
 			      			<td class="t">로고이미지</td>
@@ -33,7 +33,7 @@
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" id="logomenu" name="logomenu"></td>      			
+			      			<td><input type="file" id="logomenu" name="logomenu" required></td>      			
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>

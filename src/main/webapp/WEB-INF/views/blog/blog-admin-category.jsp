@@ -37,6 +37,15 @@ $(function(){
 	});
 	
 	$("#btn-add-category").click(function(){
+		name, desc
+		if($("#name").val() == "" || $("#desc").val() == "") {
+			alert("값을 입력하세요");
+			$("#name").val("");
+			$("#desc").val("");
+			
+			return;
+		}
+		
 		var categoryNo = $("#desc").val();
 		
 		$.ajax({
