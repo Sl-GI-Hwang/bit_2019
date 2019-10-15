@@ -1,12 +1,15 @@
 package config.user;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import kr.co.itcen.springcontainer.user.Friend;
 import kr.co.itcen.springcontainer.user.User;
 
+
+@Configuration
 public class UserConfig01 {
-	@Bean
+	@Bean("user1")
 	public User user() {
 		return new User();
 	}

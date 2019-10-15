@@ -30,7 +30,7 @@ public class JavaConfigTest {
 		ApplicationContext appCntx = 
 				new AnnotationConfigApplicationContext("config.user");
 		
-		User user = appCntx.getBean(User.class);
+		User user = (User)appCntx.getBean("user1");
 		System.out.println(user);
 		
 		((ConfigurableApplicationContext)appCntx).close();
