@@ -1,1 +1,1 @@
-# bit_2019~2020 study
+# 2019~2020 study in Bitacademy
